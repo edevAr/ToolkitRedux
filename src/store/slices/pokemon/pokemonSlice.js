@@ -4,15 +4,19 @@ export const pokemonSlice = createSlice({
    name: 'pokemon',
    initialState: {
       page: 0,
-      pokmeon: [],
-      isLoading: false
+      pokemons: [],
+      isLoading: false,
    },
    reducers: {
        startLoadingPokemons: (state, /* action */) => {
            state.isLoading = true;
        },
        setPokemons:(state, action) => {
-            console.log(action);
+        console.log(action);
+            state.isLoading = false;
+            state.page = action.payload.page;
+            state.pokemons = action.payload.pokemons
+
        }
    },
 })
